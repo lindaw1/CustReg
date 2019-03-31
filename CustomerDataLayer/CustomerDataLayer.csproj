@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerDB.cs" />
+    <Compile Include="GenericDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelExpertDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomerBusinessLayer\CustomerBusinessLayer.csproj">
