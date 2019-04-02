@@ -1,0 +1,5 @@
+ALTER TABLE Customers
+ADD CustPassword nvarchar(25);
+
+ALTER TABLE Customers
+ADD CustUserID nvarchar(25);

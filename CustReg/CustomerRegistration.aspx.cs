@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CustomerBusinessLayer;
-
+using CustomerDataLayer;
 
 namespace CustReg
 {
@@ -21,11 +21,24 @@ namespace CustReg
             Customer customer = new Customer();
             customer.FirstName = txtFirstName.Text;
             customer.LastName = txtLastName.Text;
-            customer.UserId = txtUserId.Text;
+            customer.Address = txtAddress.Text;
+            customer.City = txtCity.Text;
+            customer.Province = txtProvince.Text;
+            customer.Postal = txtPostalCode.Text;
+            customer.Country = txtCountry.Text;
+            customer.HomePhone = txtHomePhone.Text;
+            customer.BusPhone = txtBusPhone.Text;
+            customer.Email = txtEmail.Text;
             customer.Password = txtPassword.Text;
+            customer.UserId = txtUserId.Text;
 
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.AddCustomer(customer);
+            //CustomerManager customerManager = new CustomerManager();
+            //customerManager.AddCustomer(customer);
+
+            CustomerDB customerdb = new CustomerDB();
+            customerdb.SaveCustomer(customer);
         }
+
+
     }
 }

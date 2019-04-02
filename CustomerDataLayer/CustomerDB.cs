@@ -19,29 +19,39 @@ namespace CustomerDataLayer
         public void SaveCustomer(Customer customer)
         {
             SqlConnection cnc = GetConnection();
-            //To do:  set up new fields in database
-            string query = "INSERT INTO Customers ([CustFirstName],[CustLastName],[CustUserId],[CustPassword] VALUES (@FirstName, @LastName, @UserId,@Password)";
+
+            string query = "INSERT INTO Customers ([CustFirstName],[CustLastName],[CustAddress],[CustCity],[CustProv],[CustPostal],[CustCountry],[CustHomePhone] ,[CustBusPhone],[CustEmail],[CustPassword],[CustUserID] VALUES (@FirstName, @LastName, @Address, @City, @Prov, @Postal, @Country, @HomePhone, @BusPhone, @Email, @Password, @UserId)";
 
             SqlCommand cmnd = new SqlCommand(query, cnc);
 
             cmnd.Parameters.AddWithValue("@FirstName", customer.FirstName);
             cmnd.Parameters.AddWithValue("@LastName", customer.LastName);
-            cmnd.Parameters.AddWithValue("@UserId", customer.UserId);
+            cmnd.Parameters.AddWithValue("@Address", customer.Address);
+            cmnd.Parameters.AddWithValue("@City", customer.City);
+            cmnd.Parameters.AddWithValue("@Prov", customer.Province);
+            cmnd.Parameters.AddWithValue("@Postal", customer.Postal);
+            cmnd.Parameters.AddWithValue("@Country", customer.Country);
+            cmnd.Parameters.AddWithValue("@HomePhone", customer.HomePhone);
+            cmnd.Parameters.AddWithValue("@BusPhone", customer.BusPhone);
+            cmnd.Parameters.AddWithValue("@Email", customer.Email);
             cmnd.Parameters.AddWithValue("@Password", customer.Password);
+            cmnd.Parameters.AddWithValue("@UserId", customer.UserId);
+
 
             try
             {
                 cnc.Open();
                 cmnd.ExecuteNonQuery();
-                    //to do:  study what the different options are re: executeNonQuery, scalar, reader etc.
+                //to do:  study what the different options are re: executeNonQuery, scalar, reader etc.
             }
             catch
             {
-                throw ;
+                throw;
             }
             finally
             {
                 cnc.Close();
             }
+        }
     }
 }
