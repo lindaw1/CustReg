@@ -40,7 +40,7 @@ namespace CustomerBusinessLayer
         public string Email { get; set; }
 
         
-        public string AgentId { get; set; }
+        public int AgentId { get; set; }
 
         [Required]
         public string Password { get; set; }
@@ -49,6 +49,5 @@ namespace CustomerBusinessLayer
         public string UserId { get; set; }
 
     
-
     }
 }
