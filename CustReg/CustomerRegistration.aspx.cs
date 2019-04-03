@@ -31,7 +31,7 @@ namespace CustReg
             customer.Email = txtEmail.Text;
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
-            customer.AgentId = 1;
+           
 
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);
