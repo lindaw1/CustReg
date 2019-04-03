@@ -13,5 +13,21 @@ namespace CustReg
         {
 
         }
+
+        protected void Loginbtn_Click(object sender, EventArgs e)
+        {
+            ErrLogin.Visible = false;
+            string Username = UserBox.Text;
+            string Password = PassBox.Text;
+
+            if(Username == "" || Password == "")
+            {
+                ErrLogin.Visible = true;
+            }
+
+
+
+
+        }
     }
 }

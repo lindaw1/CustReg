@@ -54,5 +54,21 @@ namespace CustomerDataLayer
                 cnc.Close();
             }
         }
+
+        public List<Customer> GetCustomers()
+        {
+
+           SqlConnection cnn = GetConnection();
+            List<Customer> Customers = mbox
+
+
+
+            return Customers;
+
+        }
+
+
+
+
     }
 }
