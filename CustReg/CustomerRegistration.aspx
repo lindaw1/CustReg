@@ -23,6 +23,86 @@
         </div>
     </div>
 
+      <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblEmail" runat="server" Text="email"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+     <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblHomePhone" runat="server" Text="Home Phone"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtHomePhone" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHomePhone"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+        
+    <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblBusPhone" runat="server" Text="Business Phone"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtBusPhone" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+
+    <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblCountry" runat="server" Text="Country"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCountry"></asp:RequiredFieldValidator>
+
+        </div>
+    </div>
+    <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtProvince" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtProvince"></asp:RequiredFieldValidator>
+
+        </div>
+    </div>
+     <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"></asp:RequiredFieldValidator>
+
+        </div>
+    </div>
+    
+    <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"></asp:RequiredFieldValidator>
+
+        </div>
+    </div>
+    <div>
+        <div class="lblCustInfo">
+            <asp:Label ID="lblPostalCode" runat="server" Text="Postal Code"></asp:Label>
+        </div>
+        <div class="txtCustInfo">
+            <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPostalCode"></asp:RequiredFieldValidator>
+        </div>
+    </div>
+
     <div>
         <div class="lblCustInfo">
             <asp:Label ID="lblUserId" runat="server" Text="User Id"></asp:Label>
@@ -54,90 +134,7 @@
         </div>
     </div>
     
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"></asp:RequiredFieldValidator>
-
-        </div>
-    </div>
-    
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"></asp:RequiredFieldValidator>
-
-        </div>
-    </div>
-    
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtProvince" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtProvince"></asp:RequiredFieldValidator>
-
-        </div>
-    </div>
-    
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblCountry" runat="server" Text="Country"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCountry"></asp:RequiredFieldValidator>
-
-        </div>
-    </div>
-    
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblPostalCode" runat="server" Text="Postal Code"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPostalCode"></asp:RequiredFieldValidator>
-        </div>
-    </div>
-
-        
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblEmail" runat="server" Text="email"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
-        </div>
-    </div>
-        
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblHomePhone" runat="server" Text="Home Phone"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtHomePhone" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHomePhone"></asp:RequiredFieldValidator>
-        </div>
-    </div>
-        
-    <div>
-        <div class="lblCustInfo">
-            <asp:Label ID="lblBusPhone" runat="server" Text="Business Phone"></asp:Label>
-        </div>
-        <div class="txtCustInfo">
-            <asp:TextBox ID="txtBusPhone" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone"></asp:RequiredFieldValidator>
-        </div>
-    </div>
+   
    
     <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
 
