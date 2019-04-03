@@ -21,17 +21,17 @@ namespace CustReg
             Customer customer = new Customer();
             customer.FirstName = txtFirstName.Text;
             customer.LastName = txtLastName.Text;
-            customer.Address = txtAddress.Text;
+            customer.Email = txtEmail.Text; // optional
+            customer.HomePhone = txtHomePhone.Text;//optional
+            customer.BusPhone = txtBusPhone.Text;//optional
+            customer.Country = txtCountry.Text;//future dropbox,for now textbox string
+            customer.Province = txtProvince.Text;//dropbox for canadien provinces
             customer.City = txtCity.Text;
-            customer.Province = txtProvince.Text;
-            customer.Postal = txtPostalCode.Text;
-            customer.Country = txtCountry.Text;
-            customer.HomePhone = txtHomePhone.Text;
-            customer.BusPhone = txtBusPhone.Text;
-            customer.Email = txtEmail.Text;
+            customer.Address = txtAddress.Text;
+            customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
-           
+            customer.AgentId = 1;
 
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);

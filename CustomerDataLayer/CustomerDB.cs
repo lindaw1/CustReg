@@ -33,8 +33,8 @@ namespace CustomerDataLayer
                 "'" + customer.BusPhone + "'" + "," +
                 "'" + customer.Email + "'" + "," 
                  + customer.AgentId  + ","+
-                "'" + customer.Password + "'" + ","+
-                "'" + customer.UserId + "'" +")";
+                "'" + customer.UserId + "'" + ","+
+                "'" + customer.Password + "'" +")";
 
             SqlCommand cmnd = new SqlCommand(query, cnc);
            
