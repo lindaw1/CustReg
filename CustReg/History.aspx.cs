@@ -14,6 +14,7 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["Id"] = "143";
             if (Session["Id"] == null)
             {
                 Response.Redirect(""); //*************************************************************
@@ -23,7 +24,7 @@ namespace CustReg
             List<Booking> allBookings = GenericDB.GenericRead<Booking>("Bookings");
             List<Package> allPackages = GenericDB.GenericRead<Package>("Packages");
 
-            List<HistoryEntity> relatedBookings = null;
+            List<HistoryEntity> relatedBookings = new List<HistoryEntity>();
             foreach (Booking b in allBookings)
             {
                 if (b.CustomerId == Id)
@@ -42,21 +43,25 @@ namespace CustReg
                 {            
                     if (p.PackageID == h.PackageId)
                     {
-                        h.PackageName = p.PackageName;
-                        h.BasePrice = p.BasePrice;
-                        h.AgencyCom = p.AgencyCom;
+                        h.PackageName = p.PkgName;
+                        h.BasePrice = p.PkgBasePrice;
+                        h.AgencyCom = p.PkgAgencyCommission;
                         decimal tP = h.BasePrice + h.AgencyCom;
                         h.Total = Convert.ToDecimal(h.TravelerCount) * tP;
                     }
                 }
             }
             grvHistory.DataSource = relatedBookings;
-
-            grvHistory.Columns[0].Visible = false;            
-            grvHistory.Columns[4].Visible = false;
-            grvHistory.Columns[5].Visible = false;
-            
             grvHistory.DataBind();
+            if (grvHistory.Columns.Count > 0)
+            {
+                grvHistory.Columns[0].Visible = false;
+                grvHistory.Columns[4].Visible = false;
+                grvHistory.Columns[5].Visible = false;
+            }
+
+            
+            
         }
     }
 }
