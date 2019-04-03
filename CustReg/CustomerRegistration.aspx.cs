@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CustomerBusinessLayer;
 using CustomerDataLayer;
+using System.Text.RegularExpressions;
 
 namespace CustReg
 {
@@ -17,7 +18,18 @@ namespace CustReg
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
-        {
+        {/*
+            ErrPostal.Visible = false;
+
+            string postal = txtPostalCode.Text;
+            Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0 - 9][ABCEGHJKLMNPRSTVWXYZ][\s][0 - 9][ABCEGHJKLMNPRSTVWXYZ][0 - 9]");
+            Match match = rgx.Match(postal);
+
+
+
+            //^\(? ([0 - 9]{ 3})\)?[-.●]? ([0 - 9]{3})[-.●]? ([0 - 9]{4})$
+            */
+
             Customer customer = new Customer();
             customer.FirstName = txtFirstName.Text;
             customer.LastName = txtLastName.Text;
@@ -36,8 +48,15 @@ namespace CustReg
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);
 
-            CustomerDB customerdb = new CustomerDB();
-            customerdb.SaveCustomer(customer);
+            if (match.Success)
+            {
+                CustomerDB customerdb = new CustomerDB();
+                customerdb.SaveCustomer(customer);
+            }
+            else
+            {
+                ErrPostal.Visible = true;
+            }
         }
 
 

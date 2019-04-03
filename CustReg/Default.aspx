@@ -5,11 +5,11 @@
 
     <br />
     <asp:Label ID="UserBox" runat="server" Text="UserName: "></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Userbox1" runat="server"></asp:TextBox>
     <br />
     <br />
 &nbsp;<asp:Label ID="PassBox" runat="server" Text="Password: "></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:TextBox ID="Passbox1" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="ErrLogin" runat="server" ForeColor="Red" Text="Invalid Account Info" Visible="False"></asp:Label>
     <br />
@@ -17,7 +17,7 @@
     <asp:Button ID="Loginbtn" runat="server" OnClick="Loginbtn_Click" Text="Login" />
     <br />
     <br />
-    <asp:Button ID="Createbtn" runat="server" Text="Create Account" />
+    <asp:Button ID="Createbtn" runat="server" OnClick="Createbtn_Click" Text="Create Account" />
     <br />
     <br />
 

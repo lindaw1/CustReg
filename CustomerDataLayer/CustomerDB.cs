@@ -10,7 +10,7 @@ namespace CustomerDataLayer
 {
     public class CustomerDB
     {
-        public SqlConnection GetConnection()
+        public static SqlConnection GetConnection()
         {
             string connectionString = @"Data Source=localhost\Sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True";
             return new SqlConnection(connectionString);
@@ -20,7 +20,7 @@ namespace CustomerDataLayer
         {
             SqlConnection cnc = GetConnection();
 
-           
+            
 
             string query = "INSERT INTO Customers VALUES (" + "'" + customer.FirstName + "'" + "," +
                 "'" + customer.LastName + "'" + "," +
@@ -31,19 +31,19 @@ namespace CustomerDataLayer
                 "'" + customer.Country + "'" + "," +
                 "'" + customer.HomePhone + "'" + "," +
                 "'" + customer.BusPhone + "'" + "," +
-                "'" + customer.Email + "'" + "," 
-                 + customer.AgentId  + ","+
-                "'" + customer.UserId + "'" + ","+
-                "'" + customer.Password + "'" +")";
-
+                "'" + customer.Email + "'" + ","
+                 + customer.AgentId + "," + 
+                "'" + customer.UserId + "'" + "," +
+                "'" + customer.Password + "'" + ")";
+            //DBNULL agent id is null for the time being, as required by the workshop
             SqlCommand cmnd = new SqlCommand(query, cnc);
-           
+
 
             try
             {
                 cnc.Open();
                 cmnd.ExecuteNonQuery();
-                
+
             }
             catch
             {
@@ -55,20 +55,49 @@ namespace CustomerDataLayer
             }
         }
 
-        public List<Customer> GetCustomers()
+        public static List<LoginInfo> GetLoginList()
         {
 
-           SqlConnection cnn = GetConnection();
-            List<Customer> Customers = mbox
+            SqlConnection cnn = GetConnection();
+            List<LoginInfo> LoginList = new List<LoginInfo>();
+            string selectStmt = "Select CustomerId,UserId, Password FROM Customers";
+            SqlCommand command = new SqlCommand(selectStmt, cnn);
+
+            try
+            {
+                cnn.Open();
+                SqlDataReader Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    LoginInfo logininfo = new LoginInfo();
+
+                    logininfo.CustId = (int)Reader["CustomerId"];
+                    logininfo.UserId = (string)Reader["UserId"];
+                    logininfo.Password = (string)Reader["Password"];
+
+                    LoginList.Add(logininfo);
 
 
+                }
 
-            return Customers;
+            }
+
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cnn.Close();
+            }
+
+            return LoginList;
 
         }
 
-
-
-
     }
+
+
 }
+

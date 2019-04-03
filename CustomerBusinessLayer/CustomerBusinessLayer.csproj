@@ -45,6 +45,7 @@
     <Compile Include="Booking.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="HistoryEntity.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Packages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

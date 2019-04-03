@@ -22,13 +22,13 @@ namespace CustReg {
         protected global::System.Web.UI.WebControls.Label UserBox;
         
         /// <summary>
-        /// TextBox1 control.
+        /// Userbox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox Userbox1;
         
         /// <summary>
         /// PassBox control.
@@ -40,13 +40,13 @@ namespace CustReg {
         protected global::System.Web.UI.WebControls.Label PassBox;
         
         /// <summary>
-        /// TextBox2 control.
+        /// Passbox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox Passbox1;
         
         /// <summary>
         /// ErrLogin control.

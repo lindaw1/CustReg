@@ -29,6 +29,7 @@
         </div>
         <div class="txtCustInfo">
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
         </div>
     </div>
      <div>
@@ -37,6 +38,7 @@
         </div>
         <div class="txtCustInfo">
             <asp:TextBox ID="txtHomePhone" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHomePhone" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
         </div>
     </div>
         
@@ -46,6 +48,7 @@
         </div>
         <div class="txtCustInfo">
             <asp:TextBox ID="txtBusPhone" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
         </div>
     </div>
 
@@ -97,6 +100,8 @@
         <div class="txtCustInfo">
             <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPostalCode" ForeColor="Red">Cannot be null</asp:RequiredFieldValidator>
+        &nbsp;
+            <asp:Label ID="ErrPostal" runat="server" ForeColor="Red" Text="X1X 1X1" Visible="False"></asp:Label>
             <br />
             <br />
         </div>
