@@ -20,15 +20,20 @@ namespace CustReg
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             ErrPostal.Visible = false;
-            
+            ErrHome.Visible = false;
+            ErrBus.Visible = false;
+
+
+            //Postal REGEX
             Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
             //Canadian postal codes can't contain the letters D, F, I, O, Q, or U, and cannot start with W or Z
             Match match = rgx.Match(txtPostalCode.Text);
-            
 
-            //^\(? ([0 - 9]{ 3})\)?[-.●]? ([0 - 9]{3})[-.●]? ([0 - 9]{4})$
+            //Phone REGEX
+            Regex phoneRgx = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
+            Match Homematch = phoneRgx.Match(txtHomePhone.Text);
+            Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
             
-
             Customer customer = new Customer();
             customer.FirstName = txtFirstName.Text;
             customer.LastName = txtLastName.Text;
@@ -42,20 +47,34 @@ namespace CustReg
             customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
-            customer.AgentId = 1;
+            customer.AgentId = 1; 
 
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);
-
-            //if (match.Success)
-            //{
-                CustomerDB customerdb = new CustomerDB();
-                customerdb.SaveCustomer(customer);
-            //}
-            //else
-            //{
-            //    ErrPostal.Visible = true;
-            //}
+            if (Homematch.Success)
+            {
+                if (Busmatch.Success)
+                {
+                    if (match.Success)
+                    {
+                        CustomerDB customerdb = new CustomerDB();
+                        customerdb.SaveCustomer(customer);
+                    }
+                    else
+                    {
+                        ErrPostal.Visible = true;
+                    }
+                }
+                else
+                {
+                    ErrBus.Visible = true;
+                }
+            }
+            
+            else
+            {
+                ErrHome.Visible = true;
+            }
         }
 
 

@@ -39,6 +39,8 @@
         <div class="txtCustInfo">
             <asp:TextBox ID="txtHomePhone" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHomePhone" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
+        &nbsp;
+            <asp:Label ID="ErrHome" runat="server" ForeColor="Red" Text="Invalid Phone Number" Visible="False"></asp:Label>
         </div>
     </div>
         
@@ -49,6 +51,8 @@
         <div class="txtCustInfo">
             <asp:TextBox ID="txtBusPhone" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
+        &nbsp;
+            <asp:Label ID="ErrBus" runat="server" ForeColor="Red" Text="Invalid Phone Number" Visible="False"></asp:Label>
         </div>
     </div>
 
