@@ -47,15 +47,15 @@ namespace CustReg
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);
 
-            if (match.Success)
-            {
+            //if (match.Success)
+            //{
                 CustomerDB customerdb = new CustomerDB();
                 customerdb.SaveCustomer(customer);
-            }
-            else
-            {
-                ErrPostal.Visible = true;
-            }
+            //}
+            //else
+            //{
+            //    ErrPostal.Visible = true;
+            //}
         }
 
 
