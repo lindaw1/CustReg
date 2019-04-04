@@ -25,6 +25,7 @@ namespace CustReg
             List<Package> allPackages = GenericDB.GenericRead<Package>("Packages");
 
             List<HistoryEntity> relatedBookings = new List<HistoryEntity>();
+
             foreach (Booking b in allBookings)
             {
                 if (b.CustomerId == Id)
@@ -51,16 +52,17 @@ namespace CustReg
                     }
                 }
             }
+
             grvHistory.DataSource = relatedBookings;
             grvHistory.DataBind();
-            if (grvHistory.Columns.Count > 0)
-            {
-                grvHistory.Columns[0].Visible = false;
-                grvHistory.Columns[4].Visible = false;
-                grvHistory.Columns[5].Visible = false;
-            }
+            lblTotal.Text = relatedBookings.Sum(item => item.Total).ToString("C");
+        }
 
-            
+        protected void grvHistory_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[4].Visible = false;
+            e.Row.Cells[5].Visible = false;
             
         }
     }
