@@ -14,7 +14,16 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Bind list boxes here after lunch
+            txtCountry.DataSource = Country_ProvDB.GetCountries();
+            txtCountry.DataTextField = "CountryName";
+            txtCountry.DataValueField = "CountryId";
+            txtCountry.DataBind();
 
+            txtProvince.DataSource = Country_ProvDB.GetProvinces();
+            txtProvince.DataTextField = "ProvName";
+            txtProvince.DataValueField = "Initial";
+            txtProvince.DataBind();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -47,8 +56,8 @@ namespace CustReg
             customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
-            customer.AgentId = 1; 
-
+            customer.AgentId = 1;
+            bool regexCheck = false;
             //CustomerManager customerManager = new CustomerManager();
             //customerManager.AddCustomer(customer);
             if (Homematch.Success)
@@ -57,8 +66,7 @@ namespace CustReg
                 {
                     if (match.Success)
                     {
-                        CustomerDB customerdb = new CustomerDB();
-                        customerdb.SaveCustomer(customer);
+                        regexCheck = true;
                     }
                     else
                     {
@@ -75,6 +83,15 @@ namespace CustReg
             {
                 ErrHome.Visible = true;
             }
+            if(regexCheck == true)
+            {
+                CustomerDB customerdb = new CustomerDB();
+                customerdb.SaveCustomer(customer);
+                Response.Redirect("Default");
+            }
+
+
+            
         }
 
 

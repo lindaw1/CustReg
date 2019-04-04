@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country_ProvDB.cs" />
     <Compile Include="CustomerDB.cs" />
     <Compile Include="GenericDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

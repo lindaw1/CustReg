@@ -61,7 +61,8 @@
             <asp:Label ID="lblCountry" runat="server" Text="Country"></asp:Label>
         </div>
         <div class="txtCustInfo">
-            <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="txtCountry" runat="server" Width="125px">
+            </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCountry" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
 
         </div>
@@ -71,9 +72,9 @@
             <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label>
         </div>
         <div class="txtCustInfo">
-            <asp:TextBox ID="txtProvince" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="txtProvince" runat="server" Width="125px">
+            </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtProvince" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
-
         </div>
     </div>
      <div>

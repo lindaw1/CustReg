@@ -181,7 +181,7 @@ namespace CustReg {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCountry;
+        protected global::System.Web.UI.WebControls.DropDownList txtCountry;
         
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -208,7 +208,7 @@ namespace CustReg {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProvince;
+        protected global::System.Web.UI.WebControls.DropDownList txtProvince;
         
         /// <summary>
         /// RequiredFieldValidator8 control.
