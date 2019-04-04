@@ -15,15 +15,20 @@ namespace CustReg
         protected void Page_Load(object sender, EventArgs e)
         {
             //Bind list boxes here after lunch
-            txtCountry.DataSource = Country_ProvDB.GetCountries();
-            txtCountry.DataTextField = "CountryName";
-            txtCountry.DataValueField = "CountryId";
-            txtCountry.DataBind();
+            if (!IsPostBack)
+            {
+                txtCountry.DataSource = Country_ProvDB.GetCountries();
+                txtCountry.DataTextField = "CountryName";
+                txtCountry.DataValueField = "CountryName";
+                txtCountry.DataBind();
 
-            txtProvince.DataSource = Country_ProvDB.GetProvinces();
-            txtProvince.DataTextField = "ProvName";
-            txtProvince.DataValueField = "Initial";
-            txtProvince.DataBind();
+                txtProvince.DataSource = Country_ProvDB.GetProvinces();
+                txtProvince.DataTextField = "ProvName";
+                txtProvince.DataValueField = "Initial";
+                txtProvince.DataBind();
+                // Load DropDownList here
+            }
+           
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -49,8 +54,8 @@ namespace CustReg
             customer.Email = txtEmail.Text; // optional
             customer.HomePhone = txtHomePhone.Text;//optional
             customer.BusPhone = txtBusPhone.Text;//optional
-            customer.Country = txtCountry.Text;//future dropbox,for now textbox string
-            customer.Province = txtProvince.Text;//dropbox for canadien provinces
+            customer.Country = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
+            customer.Province = txtProvince.SelectedValue;//dropbox for canadien provinces
             customer.City = txtCity.Text;
             customer.Address = txtAddress.Text;
             customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
@@ -58,8 +63,7 @@ namespace CustReg
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;
             bool regexCheck = false;
-            //CustomerManager customerManager = new CustomerManager();
-            //customerManager.AddCustomer(customer);
+            
             if (Homematch.Success)
             {
                 if (Busmatch.Success)
@@ -94,6 +98,9 @@ namespace CustReg
             
         }
 
+        protected void txtProvince_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

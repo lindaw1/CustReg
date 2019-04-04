@@ -72,7 +72,7 @@
             <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label>
         </div>
         <div class="txtCustInfo">
-            <asp:DropDownList ID="txtProvince" runat="server" Width="125px">
+            <asp:DropDownList ID="txtProvince" runat="server" Width="125px" OnSelectedIndexChanged="txtProvince_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtProvince" ForeColor="Red">Cannot Be Null</asp:RequiredFieldValidator>
         </div>
