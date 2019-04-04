@@ -101,7 +101,7 @@
             <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPostalCode" ForeColor="Red">Cannot be null</asp:RequiredFieldValidator>
         &nbsp;
-            <asp:Label ID="ErrPostal" runat="server" ForeColor="Red" Text="X1X 1X1" Visible="False"></asp:Label>
+            <asp:Label ID="ErrPostal" runat="server" ForeColor="Red" Text="Invalid Postal Code" Visible="False"></asp:Label>
             <br />
             <br />
         </div>

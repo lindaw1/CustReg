@@ -18,17 +18,16 @@ namespace CustReg
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
-        {/*
+        {
             ErrPostal.Visible = false;
-
-            string postal = txtPostalCode.Text;
-            Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0 - 9][ABCEGHJKLMNPRSTVWXYZ][\s][0 - 9][ABCEGHJKLMNPRSTVWXYZ][0 - 9]");
-            Match match = rgx.Match(postal);
-
-
+            
+            Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
+            //Canadian postal codes can't contain the letters D, F, I, O, Q, or U, and cannot start with W or Z
+            Match match = rgx.Match(txtPostalCode.Text);
+            
 
             //^\(? ([0 - 9]{ 3})\)?[-.●]? ([0 - 9]{3})[-.●]? ([0 - 9]{4})$
-            */
+            
 
             Customer customer = new Customer();
             customer.FirstName = txtFirstName.Text;
