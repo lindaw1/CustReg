@@ -150,17 +150,13 @@ namespace CustReg
                 else
                 {
                     customer.CustomerId = loggedinCust.CustomerId;
-                    GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer);
+                        int[] checkId= { 14 };
+                    GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer,null,null,checkId);
                 }
 
             }
             }
 
-
-        }
-
-        protected void txtProvince_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
     }

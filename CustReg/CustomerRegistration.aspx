@@ -35,7 +35,7 @@
 
         <div style="margin-bottom: 20px">
             <asp:Label ID="lblProvince" runat="server" Text="Province" CssClass="col-sm-4"></asp:Label>
-            <asp:DropDownList ID="txtProvince" runat="server" Height="30px" Width="125px" OnSelectedIndexChanged="txtProvince_SelectedIndexChanged" CssClass="col-sm-6">
+            <asp:DropDownList ID="txtProvince" runat="server" Height="30px" Width="125px" CssClass="col-sm-6">
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtProvince" ForeColor="Red">Please select your province.</asp:RequiredFieldValidator>
         </div> 
