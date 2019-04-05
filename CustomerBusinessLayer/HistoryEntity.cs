@@ -10,16 +10,19 @@ namespace CustomerBusinessLayer
     public class HistoryEntity
     {        
         public int? CustomerId { get; set; }
-        
-        [DisplayName ("# of Travelers")]
-        public float? TravelerCount { get; set; }
+
+        public int? BookingId { get; set; }
+
+     
 
         [DisplayName("Package ID")]
         public int? PackageId { get; set; }
 
         [DisplayName("Package Name")]
         public string PackageName { get; set; }
-                
+
+        [DisplayName("# of Travelers")]
+        public float? TravelerCount { get; set; }
 
         public decimal BasePrice { get; set; }
 

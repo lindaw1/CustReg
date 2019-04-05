@@ -5,9 +5,9 @@
     </p>
     <p>
         <asp:Label ID="lblCust" runat="server" Text="Label"></asp:Label>
-        <asp:GridView ID="grvHistory" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="grvHistory_RowDataBound">
+        <asp:GridView ID="grvHistory" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="grvHistory_RowDataBound" CssClass="table" Width="859px">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
+            <EditRowStyle BackColor="#999999" BorderStyle="None" HorizontalAlign="Center" VerticalAlign="Middle" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
