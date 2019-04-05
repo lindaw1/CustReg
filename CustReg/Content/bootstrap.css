@@ -2258,7 +2258,7 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+  text-align: center;
 }
 .table {
   width: 100%;
@@ -6759,6 +6759,6 @@ button.close {
 
 
 
-.table .th {
+th {
     text-align: center;
 }
