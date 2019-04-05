@@ -62,7 +62,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Travel Experts-Created By:Matthew,Linda,Hoora and Henry</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Travel Experts Created By:Matthew,Linda,Hoora and Henry</p>
             </footer>
         </div>
 
