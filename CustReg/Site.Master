@@ -52,8 +52,10 @@
                     <ul class="nav navbar-nav">
                        
                  
-                        <li><a runat="server" href="~/">Login</a></li>
-                    
+                        <li><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></li>
+                            
+                            <%--<a id="loginLink" runat="server" href="~/">Login</a>--%>
+   <%--                 <li><a runat="server" href="~/" >Logout</a></li>--%>
                         
 
                     </ul>
@@ -63,6 +65,7 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Travel Experts Created By:Matthew,Linda,Hoora and Henry</p>
