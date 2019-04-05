@@ -73,6 +73,8 @@
             <asp:Label ID="lblUserId" runat="server" Text="User Id" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtUserId" runat="server" CssClass="col-sm-6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtUserId" ForeColor="Red">Cannot be null</asp:RequiredFieldValidator>
+        &nbsp;&nbsp;
+            <asp:Label ID="ErrUserId" runat="server" ForeColor="Red" Text=" UserID Already in Use" Visible="False"></asp:Label>
         </div>
         
         <div style="margin-bottom: 20px">

@@ -27,12 +27,13 @@ namespace CustReg
         {
             if (Session["CustId"] == null)
             {
-               Response.Redirect(@"~\Default.aspx");
+               Response.Redirect("Default.aspx");
             }
-            else
+            else if(Session["CustId"] != null)
+            
             {
                 Session.Clear();
-                Response.Redirect(@"~\Default.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
     }

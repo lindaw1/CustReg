@@ -64,9 +64,10 @@ namespace CustReg
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             ErrPostal.Visible = false;
+            ErrUserId.Visible = false;
             ErrHome.Visible = false;
             ErrBus.Visible = false;
-
+            List<LoginInfo> LogCheck = CustomerDB.GetLoginList();
 
             //Postal REGEX
             Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
@@ -93,7 +94,23 @@ namespace CustReg
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;
             bool regexCheck = false;
-            
+
+            foreach (LoginInfo log in LogCheck)
+            {
+                if(log.UserId == txtUserId.Text)
+                {
+                    ErrUserId.Visible = true;
+                }
+            }
+
+
+
+
+
+
+
+
+
             if (Homematch.Success)
             {
                 if (Busmatch.Success)
@@ -117,10 +134,15 @@ namespace CustReg
             {
                 ErrHome.Visible = true;
             }
+            if(ErrUserId.Visible == false)
+            {
+
+            
             if(regexCheck == true)
             {
                 if (CustId == null)
                 {
+
                     CustomerDB customerdb = new CustomerDB();
                     customerdb.SaveCustomer(customer);
                     Response.Redirect("Default");
@@ -132,9 +154,9 @@ namespace CustReg
                 }
 
             }
+            }
 
 
-            
         }
 
         protected void txtProvince_SelectedIndexChanged(object sender, EventArgs e)

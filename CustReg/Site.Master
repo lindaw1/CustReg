@@ -52,7 +52,7 @@
                     <ul class="nav navbar-nav">
                        
                  
-                        <li><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></li>
+                        <li><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CausesValidation="false" /></li>
                             
                             <%--<a id="loginLink" runat="server" href="~/">Login</a>--%>
    <%--                 <li><a runat="server" href="~/" >Logout</a></li>--%>
