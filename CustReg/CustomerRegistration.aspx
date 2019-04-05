@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <br />
     <div>
         <div class="lblCustInfo">
             <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>

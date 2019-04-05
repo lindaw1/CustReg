@@ -20,7 +20,7 @@ namespace CustomerDataLayer
         {
             SqlConnection cnc = GetConnection();
 
-            
+           
 
             string query = "INSERT INTO Customers VALUES (" + "'" + customer.CustFirstName + "'" + "," +
                 "'" + customer.CustLastName + "'" + "," +
@@ -32,7 +32,7 @@ namespace CustomerDataLayer
                 "'" + customer.CustHomePhone + "'" + "," +
                 "'" + customer.CustBusPhone + "'" + "," +
                 "'" + customer.CustEmail + "'" + ","
-                 + customer.AgentId + "," + 
+                 +  "NULL" + "," + 
                 "'" + customer.UserId + "'" + "," +
                 "'" + customer.Password + "'" + ")";
             //DBNULL agent id is null for the time being, as required by the workshop

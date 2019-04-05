@@ -31,6 +31,7 @@ namespace CustReg
                 txtCountry.SelectedIndex = 30;
 
             }
+            
            
         }
 
