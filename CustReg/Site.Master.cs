@@ -11,7 +11,29 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["CustId"] == null)
+            {
+                btnLogin.Text= "Login";
+            }
+            else
+            {
+                btnLogin.Text = "LogOut";
+            }
+            
 
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (Session["CustId"] == null)
+            {
+               Response.Redirect(@"~\Default.aspx");
+            }
+            else
+            {
+                Session.Clear();
+                Response.Redirect(@"~\Default.aspx");
+            }
         }
     }
 }
