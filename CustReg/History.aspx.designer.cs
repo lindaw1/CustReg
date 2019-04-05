@@ -13,6 +13,15 @@ namespace CustReg {
     public partial class History {
         
         /// <summary>
+        /// lblCust control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCust;
+        
+        /// <summary>
         /// grvHistory control.
         /// </summary>
         /// <remarks>

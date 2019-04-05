@@ -14,13 +14,15 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Id"] = "143";
-            if (Session["Id"] == null)
+           
+            if (Session["CustId"] == null)
             {
-                Response.Redirect(""); //*************************************************************
+                Response.Redirect(@"~\Default.aspx"); //*************************************************************
             }
-            int Id = Convert.ToInt32(Session["Id"]);
+            int CustId = Convert.ToInt32(Session["CustId"]);
 
+            Customer loggedinCust = GenericDB.GenericRead<Customer>("Customer", 1, CustId)[0];
+            lblCust.Text = loggedinCust.FirstName + " " + loggedinCust.LastName;
             List<Booking> allBookings = GenericDB.GenericRead<Booking>("Bookings");
             List<Package> allPackages = GenericDB.GenericRead<Package>("Packages");
 
@@ -28,7 +30,7 @@ namespace CustReg
 
             foreach (Booking b in allBookings)
             {
-                if (b.CustomerId == Id)
+                if (b.CustomerId == CustId)
                 {
                     HistoryEntity htry = new HistoryEntity();
                     htry.CustomerId = b.CustomerId;
