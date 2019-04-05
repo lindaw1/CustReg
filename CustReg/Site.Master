@@ -55,14 +55,14 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/History.aspx">Purchase History</a></li>
-                                <li><a href="#">Modify Account</a></li>
+                                <li><a href="/CustomerRegistration.aspx">Modify Account</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/CustomerRegistration.aspx"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;New Customer</a></li>
                         <li>
-                            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-primary" Height="50px" padding="10px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-primary" Height="50px" padding="10px" CausesValidation="False" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     </ul>
                 </div>
             </div>
