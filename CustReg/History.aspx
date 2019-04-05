@@ -4,6 +4,7 @@
         <br />
     </p>
     <p>
+        <asp:Label ID="lblCust" runat="server" Text="Label"></asp:Label>
         <asp:GridView ID="grvHistory" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="grvHistory_RowDataBound">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
