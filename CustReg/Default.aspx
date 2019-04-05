@@ -14,7 +14,7 @@
     <asp:Label ID="ErrLogin" runat="server" ForeColor="Red" Text="Invalid Account Info" Visible="False"></asp:Label>
     <br />
     <br />
-    <asp:Button ID="Loginbtn" runat="server" OnClick="Loginbtn_Click" Text="Login" />
+    <asp:Button ID="Loginbtn" runat="server" OnClick="Loginbtn_Click" Text="Login" style="height: 26px" />
     <br />
     <br />
     <asp:Button ID="Createbtn" runat="server" OnClick="Createbtn_Click" Text="Create Account" />
