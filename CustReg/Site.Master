@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -50,14 +50,13 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                       
-                 
-                        <li><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></li>
-                            
-                            <%--<a id="loginLink" runat="server" href="~/">Login</a>--%>
-   <%--                 <li><a runat="server" href="~/" >Logout</a></li>--%>
-                        
 
+
+                        <li>
+                            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></li>
+
+                        <%--<a id="loginLink" runat="server" href="~/">Login</a>--%>
+                        <%--                 <li><a runat="server" href="~/" >Logout</a></li>--%>
                     </ul>
                 </div>
             </div>
@@ -65,7 +64,7 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            
+
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Travel Experts Created By:Matthew,Linda,Hoora and Henry</p>
