@@ -52,16 +52,16 @@ namespace CustReg
             Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
             
             Customer customer = new Customer();
-            customer.FirstName = txtFirstName.Text;
-            customer.LastName = txtLastName.Text;
-            customer.Email = txtEmail.Text; // optional
-            customer.HomePhone = txtHomePhone.Text;//optional
-            customer.BusPhone = txtBusPhone.Text;//optional
-            customer.Country = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
-            customer.Province = txtProvince.SelectedValue;//dropbox for canadien provinces
-            customer.City = txtCity.Text;
-            customer.Address = txtAddress.Text;
-            customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
+            customer.CustFirstName = txtFirstName.Text;
+            customer.CustLastName = txtLastName.Text;
+            customer.CustEmail = txtEmail.Text; // optional
+            customer.CustHomePhone = txtHomePhone.Text;//optional
+            customer.CustBusPhone = txtBusPhone.Text;//optional
+            customer.CustCountry = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
+            customer.CustProv = txtProvince.SelectedValue;//dropbox for canadien provinces
+            customer.CustCity = txtCity.Text;
+            customer.CustAddress = txtAddress.Text;
+            customer.CustPostal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;

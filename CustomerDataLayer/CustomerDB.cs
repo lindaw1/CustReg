@@ -22,16 +22,16 @@ namespace CustomerDataLayer
 
             
 
-            string query = "INSERT INTO Customers VALUES (" + "'" + customer.FirstName + "'" + "," +
-                "'" + customer.LastName + "'" + "," +
-                "'" + customer.Address + "'" + "," +
-                "'" + customer.City + "'" + "," +
-                "'" + customer.Province + "'" + "," +
-                "'" + customer.Postal + "'" + "," +
-                "'" + customer.Country + "'" + "," +
-                "'" + customer.HomePhone + "'" + "," +
-                "'" + customer.BusPhone + "'" + "," +
-                "'" + customer.Email + "'" + ","
+            string query = "INSERT INTO Customers VALUES (" + "'" + customer.CustFirstName + "'" + "," +
+                "'" + customer.CustLastName + "'" + "," +
+                "'" + customer.CustAddress + "'" + "," +
+                "'" + customer.CustCity + "'" + "," +
+                "'" + customer.CustProv + "'" + "," +
+                "'" + customer.CustPostal + "'" + "," +
+                "'" + customer.CustCountry + "'" + "," +
+                "'" + customer.CustHomePhone + "'" + "," +
+                "'" + customer.CustBusPhone + "'" + "," +
+                "'" + customer.CustEmail + "'" + ","
                  + customer.AgentId + "," + 
                 "'" + customer.UserId + "'" + "," +
                 "'" + customer.Password + "'" + ")";
