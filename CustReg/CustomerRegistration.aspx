@@ -74,6 +74,7 @@
             <asp:Label ID="lblUserId" runat="server" Text="User Id" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtUserId" runat="server" CssClass="col-sm-6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtUserId" ForeColor="Red">Please enter a user ID.</asp:RequiredFieldValidator>
+            <asp:Label ID="ErrUserId" runat="server" ForeColor="Red" Text="Invalid User Id" Visible="False"></asp:Label>
         </div>
         
         <div style="margin-bottom: 20px">
