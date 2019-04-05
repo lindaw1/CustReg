@@ -27,7 +27,7 @@ namespace ClassDB
         /// <param name="tableName">Corresponding Table Name in DB</param>
         /// <param name="orderByIndex">how you want to order your results, 1 is default</param>
         /// <returns>A list of requried entity classes for the corresponding DB </returns>
-        public static List<T> GenericRead<T>(string tableName,int orderByIndex=1) //need inherit from ParentClass so that I can call the extra method
+        public static List<T> GenericRead<T>(string tableName,int orderByIndex=1,int? id=null) //need inherit from ParentClass so that I can call the extra method
         {
             List<T> classData = new List<T>();//List to hold result
             Type type = typeof(T);
@@ -44,9 +44,21 @@ namespace ClassDB
 
             using (SqlConnection connection = TravelExpertDB.GetConnection())//using method could auto close resources, so the connection got closed automatically
             {
+                string selectStatement;
                 //The select Sql Syntax
-                string selectStatement = "SELECT " + FieldToSqlSyntax + " " +
-                                         "FROM " + tableName + " " + "ORDER BY "+orderByIndex;
+                if (id == null)
+                {
+                    selectStatement = "SELECT " + FieldToSqlSyntax + " " +
+                                                             "FROM " + tableName + " " + "ORDER BY " + orderByIndex;
+                }
+                else
+                {
+                    selectStatement = "SELECT " + FieldToSqlSyntax + " " +
+                                                                "FROM " + tableName + " " + "where " + properties[0].Name+"="+id;
+                }
+                
+                
+                
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))//auto close Sqlcommand
                 {
                     connection.Open();

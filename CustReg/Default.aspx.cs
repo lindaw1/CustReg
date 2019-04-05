@@ -38,6 +38,7 @@ namespace CustReg
                     {
                         match = true;
                         Session.Add("CustId", login.CustId);
+                        Response.Redirect("History");
                     }
                 }
             }

@@ -9,38 +9,40 @@ namespace CustomerBusinessLayer
 {
     public class Customer
     {
-        [Required]
-        public string FirstName { get; set; }
+        public int CustomerId { get; set; }
 
         [Required]
-        public string LastName { get; set; }
+        public string CustFirstName { get; set; }
 
         [Required]
-        public string Address { get; set; }
+        public string CustLastName { get; set; }
 
         [Required]
-        public string City { get; set; }
+        public string CustAddress { get; set; }
 
         [Required]
-        public string Province { get; set; }
+        public string CustCity { get; set; }
+
+        [Required]
+        public string CustProv { get; set; }
 
         [Required, RegularExpression(@"^[A - Z]\d[A - Z] \d[A - Z]\d$")]
-        public string Postal { get; set; }
+        public string CustPostal { get; set; }
 
         [Required]
-        public string Country { get; set; }
+        public string CustCountry { get; set; }
 
         [Required]
-        public string HomePhone { get; set; }
+        public string CustHomePhone { get; set; }
 
         [Required]
-        public string  BusPhone { get; set; }
+        public string  CustBusPhone { get; set; }
 
         [Required]
-        public string Email { get; set; }
+        public string CustEmail { get; set; }
 
         
-        public int AgentId { get; set; }
+        public int? AgentId { get; set; }
 
         [Required]
         public string Password { get; set; }

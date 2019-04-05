@@ -7,15 +7,24 @@ using System.Web.UI.WebControls;
 using CustomerBusinessLayer;
 using CustomerDataLayer;
 using System.Text.RegularExpressions;
+using ClassDB;
 
 namespace CustReg
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
+        int? CustId=null;
+        Customer loggedinCust;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Bind list boxes here after lunch
-            if (!IsPostBack)
+            if (Session["CustId"] != null)
+            {
+                CustId = Convert.ToInt32(Session["CustId"]);
+                loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
+            }
+
+                //Bind list boxes here after lunch
+                if (!IsPostBack)
             {
                 txtCountry.DataSource = Country_ProvDB.GetCountries();
                 txtCountry.DataTextField = "CountryName";
@@ -27,7 +36,28 @@ namespace CustReg
                 txtProvince.DataValueField = "Initial";
                 txtProvince.DataBind();
                 // Load DropDownList here
+
+                txtCountry.SelectedIndex = 30;
+                if (Session["CustId"] != null)
+                {
+
+                    txtFirstName.Text = loggedinCust.CustFirstName;
+                    txtLastName.Text = loggedinCust.CustLastName;
+                    txtAddress.Text = loggedinCust.CustAddress;
+                    txtBusPhone.Text = loggedinCust.CustBusPhone;
+                    txtCity.Text = loggedinCust.CustCity;
+                    txtEmail.Text = loggedinCust.CustEmail;
+                    txtHomePhone.Text = loggedinCust.CustHomePhone;
+                    txtProvince.SelectedValue = loggedinCust.CustProv;
+                    txtPostalCode.Text = loggedinCust.CustPostal;
+                    txtUserId.Text = loggedinCust.UserId;
+                    btnRegister.Text = "Save";
+                    txtCountry.SelectedValue = loggedinCust.CustCountry;
+                }
+
             }
+
+
            
         }
 
@@ -49,16 +79,16 @@ namespace CustReg
             Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
             
             Customer customer = new Customer();
-            customer.FirstName = txtFirstName.Text;
-            customer.LastName = txtLastName.Text;
-            customer.Email = txtEmail.Text; // optional
-            customer.HomePhone = txtHomePhone.Text;//optional
-            customer.BusPhone = txtBusPhone.Text;//optional
-            customer.Country = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
-            customer.Province = txtProvince.SelectedValue;//dropbox for canadien provinces
-            customer.City = txtCity.Text;
-            customer.Address = txtAddress.Text;
-            customer.Postal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
+            customer.CustFirstName = txtFirstName.Text;
+            customer.CustLastName = txtLastName.Text;
+            customer.CustEmail = txtEmail.Text; // optional
+            customer.CustHomePhone = txtHomePhone.Text;//optional
+            customer.CustBusPhone = txtBusPhone.Text;//optional
+            customer.CustCountry = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
+            customer.CustProv = txtProvince.SelectedValue;//dropbox for canadien provinces
+            customer.CustCity = txtCity.Text;
+            customer.CustAddress = txtAddress.Text;
+            customer.CustPostal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;
@@ -89,9 +119,18 @@ namespace CustReg
             }
             if(regexCheck == true)
             {
-                CustomerDB customerdb = new CustomerDB();
-                customerdb.SaveCustomer(customer);
-                Response.Redirect("Default");
+                if (CustId == null)
+                {
+                    CustomerDB customerdb = new CustomerDB();
+                    customerdb.SaveCustomer(customer);
+                    Response.Redirect("Default");
+                }
+                else
+                {
+                    customer.CustomerId = loggedinCust.CustomerId;
+                    GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer);
+                }
+
             }
 
 
