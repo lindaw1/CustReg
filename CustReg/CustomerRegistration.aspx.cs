@@ -27,6 +27,9 @@ namespace CustReg
                 txtProvince.DataValueField = "Initial";
                 txtProvince.DataBind();
                 // Load DropDownList here
+
+                txtCountry.SelectedIndex = 30;
+
             }
            
         }

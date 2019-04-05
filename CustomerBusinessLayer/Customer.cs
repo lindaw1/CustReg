@@ -9,6 +9,8 @@ namespace CustomerBusinessLayer
 {
     public class Customer
     {
+        public int CustId { get; set; }
+
         [Required]
         public string FirstName { get; set; }
 
