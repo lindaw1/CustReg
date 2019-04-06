@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CustomerRegistration.aspx.cs" Inherits="CustReg.CustomerRegistration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+  
     <br/>
+    <h3>Welcome Aboard.</h3>
     <br/>
+  
+
     <div class="row" style="width: 100%">
 
         <div style="margin-bottom: 20px">
@@ -91,6 +95,7 @@
             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToCompare="txtPassword" ControlToValidate="txtPasswordConfirm" ForeColor="Red">Passwords do not match</asp:CompareValidator>
         </div>
   
-    <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+    <asp:Button ID="btnRegister" runat="server" CssClass="btn-primary" Text="Register" OnClick="btnRegister_Click" />
     </div>
+
 </asp:Content>

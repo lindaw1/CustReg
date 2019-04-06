@@ -29,8 +29,8 @@ namespace CustReg
             {
                Response.Redirect("Default.aspx");
             }
+
             else if(Session["CustId"] != null)
-            
             {
                 Session.Clear();
                 Response.Redirect("Default.aspx");
