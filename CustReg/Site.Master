@@ -60,7 +60,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/CustomerRegistration.aspx"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;New Customer</a></li>
+                        <li><a href="/CustomerRegistration.aspx"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;</a></li>
                         <li>
                             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-primary" Height="50px" padding="10px" CausesValidation="False" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     </ul>
