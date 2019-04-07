@@ -28,7 +28,10 @@ namespace CustReg
             int CustId = Convert.ToInt32(Session["CustId"]);
 
             Customer loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
-            lblCust.Text = "Booking History for: " + loggedinCust.CustFirstName + " " + loggedinCust.CustLastName;
+
+            //lblCust.Text = "Booking History for: " + loggedinCust.CustFirstName + " " + loggedinCust.CustLastName;
+            lblCust.Text = loggedinCust.CustFirstName + ", look at all the fabulous places you have traveled!";
+
             List<Booking> allBookings = GenericDB.GenericRead<Booking>("Bookings");
             List<Package> allPackages = GenericDB.GenericRead<Package>("Packages");
 

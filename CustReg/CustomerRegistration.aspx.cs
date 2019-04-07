@@ -23,7 +23,7 @@ namespace CustReg
                 loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
             }
 
-            //Bind list boxes here after lunch
+            //Bind list boxes --Matthew
             if (!IsPostBack)
             {
                 txtCountry.DataSource = Country_ProvDB.GetCountries();
@@ -37,9 +37,12 @@ namespace CustReg
                 txtProvince.DataBind();
                 // Load DropDownList here
 
+                //default country is Canada
                 txtCountry.SelectedIndex = 30;
+
                 if (Session["CustId"] != null)
                 {
+                    lblGreeting.Text = "Modify Account"; //--linda--change greeting depending if modifying or creating
 
                     txtFirstName.Text = loggedinCust.CustFirstName;
                     txtLastName.Text = loggedinCust.CustLastName;
@@ -59,52 +62,38 @@ namespace CustReg
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            //ErrPostal.Visible = false;
             ErrUserId.Visible = false;
-            //ErrHome.Visible = false;
-            //ErrBus.Visible = false;
+
+            //checks to see if user id is already in use.--Matthew
             List<LoginInfo> LogCheck = CustomerDB.GetLoginList();
-
-            ////Postal REGEX
-            //Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
-            ////Canadian postal codes can't contain the letters D, F, I, O, Q, or U, and cannot start with W or Z
-            //Match match = rgx.Match(txtPostalCode.Text);
-
-            //Phone REGEX
-            //Regex phoneRgx = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
-            //Match Homematch = phoneRgx.Match(txtHomePhone.Text);
-            //Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
-
+            
+            //creates new customer---Matthew & Linda
             Customer customer = new Customer();
             customer.CustFirstName = txtFirstName.Text;
             customer.CustLastName = txtLastName.Text;
-            customer.CustEmail = txtEmail.Text; // optional
-            customer.CustHomePhone = txtHomePhone.Text;//optional
-            customer.CustBusPhone = txtBusPhone.Text;//optional
-            customer.CustCountry = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
+            customer.CustEmail = txtEmail.Text; // optional for assignment, but "Not Null" in db
+            customer.CustHomePhone = txtHomePhone.Text;//optional for assignment, but "Not Null" in db
+            customer.CustBusPhone = txtBusPhone.Text;//optional for assignment, but "Not Null" in db
+            customer.CustCountry = txtCountry.SelectedItem.Text;//dropbox
             customer.CustProv = txtProvince.SelectedValue;//dropbox for canadien provinces
             customer.CustCity = txtCity.Text;
             customer.CustAddress = txtAddress.Text;
-            customer.CustPostal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
+            customer.CustPostal = txtPostalCode.Text;// REGEX in aspx
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
-            customer.AgentId = 1;
-            //bool regexCheck = false;
+            customer.AgentId = 1;  // this value gets changed to Null when it loads.
 
             foreach (LoginInfo log in LogCheck)
             {
                 if (log.UserId == txtUserId.Text)
                 {
                     ErrUserId.Visible = true;
-                    break;  //stops once it finds a match
+                    break;  //--linda--stops code,  once it finds a match
                 }
             }
 
-            
-
             if (ErrUserId.Visible == false)
             {
-
                 if (CustId == null)
                 {
                     //add new
@@ -116,10 +105,9 @@ namespace CustReg
                 {
                     //update
                     customer.CustomerId = loggedinCust.CustomerId;
-                    int[] checkId = { 13 };//userId, let Gereric Update method check userID duplication while updating.
+                    int[] checkId = { 13 };//userId, let Generic Update method check userID duplication while updating.
                     GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null, checkId);
                 }
-
             }
         }
     }

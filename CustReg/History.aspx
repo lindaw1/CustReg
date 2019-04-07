@@ -5,6 +5,8 @@
     </p>
     <p>
         <asp:Label ID="lblCust" runat="server" Text="Label" CssClass="h3"></asp:Label>
+        <br/>
+        <br/>
         
         <%--added by linda-- class="table-responsive" and removed Width="xxx" to make the gridview responsive--%>
         <div class="table-responsive">
