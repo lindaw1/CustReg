@@ -104,13 +104,6 @@ namespace CustReg
             }
 
 
-
-
-
-
-
-
-
             if (Homematch.Success)
             {
                 if (Busmatch.Success)
@@ -142,15 +135,16 @@ namespace CustReg
             {
                 if (CustId == null)
                 {
-
+                    //add new
                     CustomerDB customerdb = new CustomerDB();
                     customerdb.SaveCustomer(customer);
                     Response.Redirect("Default");
                 }
                 else
                 {
+                        //update
                     customer.CustomerId = loggedinCust.CustomerId;
-                        int[] checkId= { 14 };
+                    int[] checkId= { 13 };//userId, let GerericUpdate method check userID duplication while updating.
                     GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer,null,null,checkId);
                 }
 
