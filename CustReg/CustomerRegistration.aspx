@@ -42,7 +42,7 @@
             <asp:Label ID="lblPostalCode" runat="server" Text="Postal Code" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtPostalCode" runat="server" CssClass="col-sm-6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" Display="Dynamic" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPostalCode"  CssClass="text-danger">Please enter your postal code. X1X 1X1</asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator runat="server" ID="PostalErr" ControlToValidate="txtPostalCode" ValidationExpression="[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]"  CssClass="text-danger" ErrorMessage="X1X 1X1"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator runat="server" ID="PostalErr" ControlToValidate="txtPostalCode" ValidationExpression="[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]"  CssClass="text-danger" ErrorMessage="X1X 1X1 is the required format"></asp:RegularExpressionValidator>
            
         </div>
         
@@ -63,17 +63,15 @@
             <asp:Label ID="lblHomePhone" runat="server" Text="Home Phone" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtHomePhone" runat="server" CssClass="col-sm-6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" Display="Dynamic" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHomePhone"  CssClass="text-danger">Please enter your home phone number.</asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator runat="server" ID="HomeErr" ControlToValidate="txtHomePhone" ValidationExpression="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" CssClass="text-danger" ErrorMessage="(555) 555-1212"></asp:RegularExpressionValidator>
-         
+            <asp:RegularExpressionValidator runat="server" ID="HomeErr" ControlToValidate="txtHomePhone" ValidationExpression="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" CssClass="text-danger" ErrorMessage="(555) 555-1212 is the required format"></asp:RegularExpressionValidator>
         </div>
         
         <div style="margin-bottom: 20px">
             <asp:Label ID="lblBusPhone" runat="server" Text="Business Phone" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtBusPhone" runat="server" CssClass="col-sm-6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone"  Display="Dynamic" CssClass="text-danger">Please enter your business phone number.</asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator runat="server" ID="BusErr" ControlToValidate="txtBusPhone" ValidationExpression="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" CssClass="text-danger" ErrorMessage="(555) 555-1212"></asp:RegularExpressionValidator>
-         
-        </div>
+            <asp:RegularExpressionValidator runat="server" ID="BusErr" ControlToValidate="txtBusPhone" ValidationExpression="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" CssClass="text-danger" ErrorMessage="(555) 555-1212 is the required format"></asp:RegularExpressionValidator>
+         </div>
         
         <div style="margin-bottom: 20px">
             <asp:Label ID="lblUserId" runat="server" Text="User Id" CssClass="col-sm-4"></asp:Label>
