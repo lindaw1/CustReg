@@ -22,19 +22,19 @@ namespace CustReg
             string Username = Userbox1.Text;
             string Password = Passbox1.Text;
             bool match = false;
-           if(Username == "" || Password == "")
+            if (Username == "" || Password == "")
             {
                 ErrLogin.Visible = true;
             }
 
             List<LoginInfo> loginList = new List<LoginInfo>();
-             loginList =CustomerDB.GetLoginList();
+            loginList = CustomerDB.GetLoginList();
 
-            foreach(LoginInfo login in loginList)
+            foreach (LoginInfo login in loginList)
             {
-                if(Username == login.UserId)
+                if (Username == login.UserId)
                 {
-                    if(Password == login.Password)
+                    if (Password == login.Password)
                     {
                         match = true;
                         Session.Add("CustId", login.CustId);
@@ -42,11 +42,11 @@ namespace CustReg
                     }
                 }
             }
-            if(match == false)
+
+            if (match == false)
             {
                 ErrLogin.Visible = true;
             }
-            
         }
 
         protected void Createbtn_Click(object sender, EventArgs e)

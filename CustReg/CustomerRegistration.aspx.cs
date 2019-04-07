@@ -13,7 +13,7 @@ namespace CustReg
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
-        int? CustId=null;
+        int? CustId = null;
         Customer loggedinCust;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,8 @@ namespace CustReg
                 loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
             }
 
-                //Bind list boxes here after lunch
-                if (!IsPostBack)
+            //Bind list boxes here after lunch
+            if (!IsPostBack)
             {
                 txtCountry.DataSource = Country_ProvDB.GetCountries();
                 txtCountry.DataTextField = "CountryName";
@@ -54,31 +54,27 @@ namespace CustReg
                     btnRegister.Text = "Save";
                     txtCountry.SelectedValue = loggedinCust.CustCountry;
                 }
-
             }
-
-
-           
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            ErrPostal.Visible = false;
+            //ErrPostal.Visible = false;
             ErrUserId.Visible = false;
-            ErrHome.Visible = false;
-            ErrBus.Visible = false;
+            //ErrHome.Visible = false;
+            //ErrBus.Visible = false;
             List<LoginInfo> LogCheck = CustomerDB.GetLoginList();
 
-            //Postal REGEX
-            Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
-            //Canadian postal codes can't contain the letters D, F, I, O, Q, or U, and cannot start with W or Z
-            Match match = rgx.Match(txtPostalCode.Text);
+            ////Postal REGEX
+            //Regex rgx = new Regex(@"[ABCEGHJKLMNPRSTVXY][0123456789][ABCEGHJKLMNPRSTVWXYZ][\s][0123456789][ABCEGHJKLMNPRSTVWXYZ][0123456789]");
+            ////Canadian postal codes can't contain the letters D, F, I, O, Q, or U, and cannot start with W or Z
+            //Match match = rgx.Match(txtPostalCode.Text);
 
             //Phone REGEX
-            Regex phoneRgx = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
-            Match Homematch = phoneRgx.Match(txtHomePhone.Text);
-            Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
-            
+            //Regex phoneRgx = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
+            //Match Homematch = phoneRgx.Match(txtHomePhone.Text);
+            //Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
+
             Customer customer = new Customer();
             customer.CustFirstName = txtFirstName.Text;
             customer.CustLastName = txtLastName.Text;
@@ -93,46 +89,22 @@ namespace CustReg
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;
-            bool regexCheck = false;
+            //bool regexCheck = false;
 
             foreach (LoginInfo log in LogCheck)
             {
-                if(log.UserId == txtUserId.Text)
+                if (log.UserId == txtUserId.Text)
                 {
                     ErrUserId.Visible = true;
+                    break;  //stops once it finds a match
                 }
             }
-
-
-            if (Homematch.Success)
-            {
-                if (Busmatch.Success)
-                {
-                    if (match.Success)
-                    {
-                        regexCheck = true;
-                    }
-                    else
-                    {
-                        ErrPostal.Visible = true;
-                    }
-                }
-                else
-                {
-                    ErrBus.Visible = true;
-                }
-            }
-            
-            else
-            {
-                ErrHome.Visible = true;
-            }
-            if(ErrUserId.Visible == false)
-            {
 
             
-            if(regexCheck == true)
+
+            if (ErrUserId.Visible == false)
             {
+
                 if (CustId == null)
                 {
                     //add new
@@ -142,16 +114,13 @@ namespace CustReg
                 }
                 else
                 {
-                        //update
+                    //update
                     customer.CustomerId = loggedinCust.CustomerId;
-                    int[] checkId= { 13 };//userId, let GerericUpdate method check userID duplication while updating.
-                    GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer,null,null,checkId);
+                    int[] checkId = { 13 };//userId, let Gereric Update method check userID duplication while updating.
+                    GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null, checkId);
                 }
 
             }
-            }
-
-
         }
     }
 }

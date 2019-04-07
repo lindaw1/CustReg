@@ -14,7 +14,13 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            //linda wallace -- to make gridview responsive
+            if (grvHistory.HeaderRow != null)
+            { 
+            grvHistory.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+
+
             if (Session["CustId"] == null)
             {
                 Response.Redirect(@"~\Default.aspx"); //*************************************************************
@@ -22,7 +28,7 @@ namespace CustReg
             int CustId = Convert.ToInt32(Session["CustId"]);
 
             Customer loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
-            lblCust.Text = "Booking History for: "+loggedinCust.CustFirstName + " " + loggedinCust.CustLastName;
+            lblCust.Text = "Booking History for: " + loggedinCust.CustFirstName + " " + loggedinCust.CustLastName;
             List<Booking> allBookings = GenericDB.GenericRead<Booking>("Bookings");
             List<Package> allPackages = GenericDB.GenericRead<Package>("Packages");
 
@@ -38,13 +44,13 @@ namespace CustReg
                     htry.PackageId = b.PackageId;
                     htry.BookingId = b.BookingId;
                     relatedBookings.Add(htry);
-                }                                   
+                }
             }
 
             foreach (HistoryEntity h in relatedBookings)
             {
                 foreach (Package p in allPackages)
-                {            
+                {
                     if (p.PackageID == h.PackageId)
                     {
                         h.PackageName = p.PkgName;
@@ -52,6 +58,7 @@ namespace CustReg
                         h.AgencyCom = p.PkgAgencyCommission;
                         decimal tP = h.BasePrice + h.AgencyCom;
                         h.Total = Convert.ToDecimal(h.TravelerCount) * tP;
+
                     }
                 }
             }
@@ -67,7 +74,13 @@ namespace CustReg
             e.Row.Cells[2].Visible = false;
             e.Row.Cells[5].Visible = false;
             e.Row.Cells[6].Visible = false;
-            
+
+            // linda Wallace -- format "Total" column to Currency
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string currencyValue = String.Format("{0:C}", Convert.ToDecimal(e.Row.Cells[7].Text));
+                e.Row.Cells[7].Text = currencyValue;
+            }
         }
     }
 }

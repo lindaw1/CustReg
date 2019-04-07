@@ -3,7 +3,6 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
     <h3>Login to access your vacation memories.</h3>
-
     <br/>
     <div style="width: 50%"> 
 
@@ -25,7 +24,5 @@
             <asp:Button ID="Loginbtn" runat="server" OnClick="Loginbtn_Click" Text="Login" CssClass="btn-primary" Style="height: 26px; margin: 0 10px"></asp:Button>
             <asp:Button ID="Createbtn" runat="server" OnClick="Createbtn_Click" Text="Create Account" CssClass="btn-primary" Style="height: 26px; margin: 0 10px"></asp:Button>
         </div>
-
     </div>
-
 </asp:Content>
