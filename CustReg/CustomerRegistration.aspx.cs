@@ -13,9 +13,8 @@ namespace CustReg
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
-        int? CustId = null;
+        int? CustId=null;
         Customer loggedinCust;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["CustId"] != null)
@@ -24,8 +23,8 @@ namespace CustReg
                 loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
             }
 
-            //Bind list boxes
-            if (!IsPostBack)
+                //Bind list boxes here after lunch
+                if (!IsPostBack)
             {
                 txtCountry.DataSource = Country_ProvDB.GetCountries();
                 txtCountry.DataTextField = "CountryName";
@@ -36,13 +35,12 @@ namespace CustReg
                 txtProvince.DataTextField = "ProvName";
                 txtProvince.DataValueField = "Initial";
                 txtProvince.DataBind();
-                // Load DropDownList
+                // Load DropDownList here
 
-                txtCountry.SelectedIndex = 30; //defaults to Canada
-
-                if (Session["CustId"] != null) // pre fills form for the customer to update
+                txtCountry.SelectedIndex = 30;
+                if (Session["CustId"] != null)
                 {
-                    lblGreeting.Text = "Update your Account";  //Different greeting for returning customer
+
                     txtFirstName.Text = loggedinCust.CustFirstName;
                     txtLastName.Text = loggedinCust.CustLastName;
                     txtAddress.Text = loggedinCust.CustAddress;
@@ -56,15 +54,13 @@ namespace CustReg
                     btnRegister.Text = "Save";
                     txtCountry.SelectedValue = loggedinCust.CustCountry;
                 }
+
             }
+
+
+           
         }
 
-       /// <summary>
-       /// Create or Update Customer Record
-       /// </summary>
-       /// Validates entries and saves Customer info to database
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             ErrPostal.Visible = false;
@@ -82,18 +78,18 @@ namespace CustReg
             Regex phoneRgx = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
             Match Homematch = phoneRgx.Match(txtHomePhone.Text);
             Match Busmatch = phoneRgx.Match(txtBusPhone.Text);
-
+            
             Customer customer = new Customer();
             customer.CustFirstName = txtFirstName.Text;
             customer.CustLastName = txtLastName.Text;
-            customer.CustEmail = txtEmail.Text; 
-            customer.CustHomePhone = txtHomePhone.Text;//regex checked for (222) 222-5555
-            customer.CustBusPhone = txtBusPhone.Text;//regex checked for (222) 222-5555
-            customer.CustCountry = txtCountry.SelectedItem.Text;//there is a dropbox
-            customer.CustProv = txtProvince.SelectedValue;//there is a dropbox for canadien provinces
+            customer.CustEmail = txtEmail.Text; // optional
+            customer.CustHomePhone = txtHomePhone.Text;//optional
+            customer.CustBusPhone = txtBusPhone.Text;//optional
+            customer.CustCountry = txtCountry.SelectedItem.Text;//future dropbox,for now textbox string
+            customer.CustProv = txtProvince.SelectedValue;//dropbox for canadien provinces
             customer.CustCity = txtCity.Text;
             customer.CustAddress = txtAddress.Text;
-            customer.CustPostal = txtPostalCode.Text;//CANADIEN REGEX gets checked
+            customer.CustPostal = txtPostalCode.Text;//REQUIRES CANADIEN REGEX
             customer.Password = txtPassword.Text;
             customer.UserId = txtUserId.Text;
             customer.AgentId = 1;
@@ -101,12 +97,12 @@ namespace CustReg
 
             foreach (LoginInfo log in LogCheck)
             {
-                if (log.UserId == txtUserId.Text)
+                if(log.UserId == txtUserId.Text)
                 {
                     ErrUserId.Visible = true;
                 }
             }
-            
+
 
             if (Homematch.Success)
             {
@@ -126,29 +122,36 @@ namespace CustReg
                     ErrBus.Visible = true;
                 }
             }
-
+            
             else
             {
                 ErrHome.Visible = true;
             }
-            if (ErrUserId.Visible == false)
+            if(ErrUserId.Visible == false)
             {
-                if (regexCheck == true)
+
+            
+            if(regexCheck == true)
+            {
+                if (CustId == null)
                 {
-                    if (CustId == null)
-                    {
-                        CustomerDB customerdb = new CustomerDB();
-                        customerdb.SaveCustomer(customer);
-                        Response.Redirect("Default");
-                    }
-                    else
-                    {
-                        customer.CustomerId = loggedinCust.CustomerId;
-                        int[] checkId = { 14 };
-                        GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null, checkId);
-                    }
+                    //add new
+                    CustomerDB customerdb = new CustomerDB();
+                    customerdb.SaveCustomer(customer);
+                    Response.Redirect("Default");
                 }
+                else
+                {
+                        //update
+                    customer.CustomerId = loggedinCust.CustomerId;
+                    int[] checkId= { 13 };//userId, let GerericUpdate method check userID duplication while updating.
+                    GenericDB.GenericUpdate<Customer>("Customers",loggedinCust,customer,null,null,checkId);
+                }
+
             }
+            }
+
+
         }
     }
 }
