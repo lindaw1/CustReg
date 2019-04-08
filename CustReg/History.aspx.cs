@@ -86,7 +86,7 @@ namespace CustReg
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.Cells[1].Text = "Booking Id";
-                e.Row.Cells[3].Text = "Package";
+                e.Row.Cells[3].Text = "Package Name";
                 e.Row.Cells[4].Text = "# of Travelers";
             }
 
