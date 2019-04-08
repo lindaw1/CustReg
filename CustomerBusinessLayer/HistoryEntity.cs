@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace CustomerBusinessLayer
 {
+    // an entity class to create history objects
     public class HistoryEntity
     {        
+        // properties
         public int? CustomerId { get; set; }
 
         public int? BookingId { get; set; }
-
-     
-
+        
         [DisplayName("Package ID")]
         public int? PackageId { get; set; }
 
