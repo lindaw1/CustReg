@@ -65,7 +65,7 @@ namespace CustReg
                     }
                 }
             }
-
+            
             grvHistory.DataSource = relatedBookings;
             grvHistory.DataBind();
             lblTotal.Text = relatedBookings.Sum(item => item.Total).ToString("C");
