@@ -41,8 +41,7 @@ namespace CustReg
                 txtCountry.SelectedIndex = 30;//could be better matt,Sincerely Matt
 
                 if (Session["CustId"] != null)
-                {
-                    
+                {                    
                     lblGreeting.Text = "Modify Account"; //--linda--change greeting depending if modifying or creating
                     
                     txtFirstName.Text = loggedinCust.CustFirstName;
@@ -115,5 +114,6 @@ namespace CustReg
                 }
             }
         }
+
     }
 }
