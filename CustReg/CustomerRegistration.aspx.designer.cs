@@ -13,6 +13,15 @@ namespace CustReg {
     public partial class CustomerRegistration {
         
         /// <summary>
+        /// lblGreeting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGreeting;
+        
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -175,13 +184,13 @@ namespace CustReg {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
-        /// ErrPostal control.
+        /// PostalErr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrPostal;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PostalErr;
         
         /// <summary>
         /// lblCountry control.
@@ -265,13 +274,13 @@ namespace CustReg {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
         
         /// <summary>
-        /// ErrHome control.
+        /// HomeErr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrHome;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator HomeErr;
         
         /// <summary>
         /// lblBusPhone control.
@@ -301,13 +310,13 @@ namespace CustReg {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
         
         /// <summary>
-        /// ErrBus control.
+        /// BusErr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrBus;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator BusErr;
         
         /// <summary>
         /// lblUserId control.

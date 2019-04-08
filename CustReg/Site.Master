@@ -54,21 +54,19 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Account
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/History.aspx">Purchase History</a></li>
+                                <li><a href="/History.aspx">Travel History</a></li>
                                 <li><a href="/CustomerRegistration.aspx">Modify Account</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/CustomerRegistration.aspx"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;New Customer</a></li>
+                        <li><a href="/CustomerRegistration.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;</a></li>
                         <li>
                             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-primary" Height="50px" padding="10px" CausesValidation="False" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -79,7 +77,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - Travel Experts Created By: Matthew, Linda, Hoora and Henry</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

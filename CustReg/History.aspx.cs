@@ -15,8 +15,15 @@ namespace CustReg
     {
         // when the page loads
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            if (Session["CustId"] == null) // if the customer is not loggedin
+        {
+            //linda wallace -- to make gridview responsive
+            if (grvHistory.HeaderRow != null)
+            { 
+            grvHistory.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+
+
+            if (Session["CustId"] == null)
             {
                 Response.Redirect(@"~\Default.aspx"); // redirect the customer to the main page to log in
             }
@@ -56,7 +63,7 @@ namespace CustReg
             {
                 // look through the package list to find the ones which are for the current customer and fill the related bookings list
                 foreach (Package p in allPackages)
-                {            
+                {
                     if (p.PackageID == h.PackageId)
                     {
                         h.PackageName = p.PkgName; // get the Package Name 
@@ -76,6 +83,17 @@ namespace CustReg
         // hiding some columns of the grid view
         protected void grvHistory_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[2].Visible = false;
+            e.Row.Cells[5].Visible = false;
+            e.Row.Cells[6].Visible = false;
+
+            // linda Wallace -- format "Total" column to Currency
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string currencyValue = String.Format("{0:C}", Convert.ToDecimal(e.Row.Cells[7].Text));
+                e.Row.Cells[7].Text = currencyValue;
+            }
             e.Row.Cells[0].Visible = false; // customer Id column
             e.Row.Cells[2].Visible = false; // package Id column
             e.Row.Cells[5].Visible = false; // base price column
