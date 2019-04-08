@@ -55,7 +55,12 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/History.aspx">Travel History</a></li>
-                                <li><a href="/CustomerRegistration.aspx">Modify Account</a></li>
+                                <li>
+                                    <asp:Button ID="btnModify" runat="server" Text="Modify Account" OnClick="btnModify_Click" CssClass="btn-block" Height="45px" padding="10px" CausesValidation="False" />
+                                 
+                                </li>
+  
+                                
                             </ul>
                         </li>
                     </ul>

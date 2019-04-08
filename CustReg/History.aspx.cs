@@ -33,7 +33,8 @@ namespace CustReg
             Customer loggedinCust = GenericDB.GenericRead<Customer>("Customers", 1, CustId)[0];
 
             // a header for the page based on the customer name
-            lblCust.Text = "Booking History for: "+loggedinCust.CustFirstName + " " + loggedinCust.CustLastName;
+          
+            lblCust.Text = loggedinCust.CustFirstName + ", look at all the fabulous places you have traveled! ";
 
             // get a list of all bookings from DB 
             List<Booking> allBookings = GenericDB.GenericRead<Booking>("Bookings");

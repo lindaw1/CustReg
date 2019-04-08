@@ -11,9 +11,9 @@ namespace CustReg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["CustId"] == null)
+            if (Session["CustId"] == null)
             {
-                btnLogin.Text= "Login";
+                btnLogin.Text = "Login";
             }
             else
             {
@@ -25,14 +25,29 @@ namespace CustReg
         {
             if (Session["CustId"] == null)
             {
-               Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx");
             }
 
-            else if(Session["CustId"] != null)
+            else if (Session["CustId"] != null)
             {
                 Session.Clear();
                 Response.Redirect("Default.aspx");
             }
         }
+
+        protected void btnModify_Click(object sender, EventArgs e)
+        {
+        
+
+
+        if (Session["CustId"] == null)
+        {
+            Response.Redirect("Default.aspx");
+        }
+
+        else
+        Response.Redirect("CustomerRegistration.aspx");
     }
+
+}
 }

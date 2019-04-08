@@ -9,6 +9,7 @@ namespace CustomerBusinessLayer
 {
     public class Customer
     {
+
         public int? CustomerId { get; set; }
 
         [Required]
