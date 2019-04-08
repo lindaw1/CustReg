@@ -35,7 +35,7 @@ namespace CustomerBusinessLayer
         [Required]
         public string CustHomePhone { get; set; }
 
-        [Required]
+        
         public string  CustBusPhone { get; set; }
 
         [Required]
