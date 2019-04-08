@@ -13,7 +13,7 @@
 
         <div style="margin-bottom: 10px" class="row">
             <asp:Label ID="PassBox" runat="server" Text="Password: " CssClass="col-sm-4"></asp:Label>
-            <asp:TextBox ID="Passbox1" runat="server" CssClass="col-sm-6"></asp:TextBox>
+            <asp:TextBox ID="Passbox1" runat="server" CssClass="col-sm-6" TextMode="Password"></asp:TextBox>
         </div>
 
         <div style="margin: 10px auto; text-align: center;">
