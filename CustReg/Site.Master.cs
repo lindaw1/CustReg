@@ -14,11 +14,12 @@ namespace CustReg
             if (Session["CustId"] == null)
             {
                 btnLogin.Text = "Login";
-                btnModify.Visible = false;
+              
             }
             else
             {
                 btnLogin.Text = "LogOut";
+                myLiteral.Text = "<li><a href='/CustomerRegistration.aspx'>Modify Account2</a></li>";
             }
         }
 
