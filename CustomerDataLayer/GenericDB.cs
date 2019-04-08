@@ -189,7 +189,12 @@ namespace ClassDB
             //For the concurrenty duplication checking list, if at least one required property's value has been changed then need perform a concurrency dup check.
                 foreach (PropertyInfo property in propToCheckDup)
                 {
-                    if (property.GetValue(oldObj) != property.GetValue(newObj))
+                Type t = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
+                var test1 = Convert.ChangeType(property.GetValue(oldObj),t);
+                var test2 = Convert.ChangeType(property.GetValue(newObj), t);
+
+
+                if (!Equals(test1,test2))
                     {
                         needToCheckConcurrencyDup = true;
                     break;
@@ -234,7 +239,7 @@ namespace ClassDB
             }
             else
             {
-                //there are changes amont the value of required property, so perfromed a concurrency check
+                //Concurrency check
                 string updateStatement = "IF NOT EXISTS (SELECT 1 FROM " + tableName + " WHERE " + FieldToSqlCheckWhere + ") " +
                     "UPDATE " + tableName + " SET " + FieldToSqlSet +
                      " WHERE " + FieldToSqlWhere;
