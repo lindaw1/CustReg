@@ -38,7 +38,7 @@ namespace CustReg
                 // Load DropDownList here
 
                 //default country is Canada
-                txtCountry.SelectedIndex = 30;
+                txtCountry.SelectedIndex = 30;//could be better matt,Sincerely Matt
 
                 if (Session["CustId"] != null)
                 {
