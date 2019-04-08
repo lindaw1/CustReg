@@ -90,10 +90,14 @@ namespace CustReg
 
             foreach (LoginInfo log in LogCheck)
             {
-                if (log.UserId == txtUserId.Text && log.UserId!=loggedinCust.UserId)
+                //henry-client side check for duplication userID. 
+                if (log.UserId == txtUserId.Text )
                 {
-                    ErrUserId.Visible = true;
-                    break;  //--linda--stops code,  once it finds a match
+                    if (loggedinCust == null || log.UserId != loggedinCust.UserId)
+                    {
+                        ErrUserId.Visible = true;
+                        break;  //--linda--stops code,  once it finds a match
+                    }
                 }
             }
 
@@ -108,7 +112,7 @@ namespace CustReg
                 }
                 else
                 {
-                    //update
+                    //henry DB side checking for duplicate userid
                     
                     int[] checkId = { 13 };//userId, let Generic Update method check userID duplication while updating.
                     int result=GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null);
