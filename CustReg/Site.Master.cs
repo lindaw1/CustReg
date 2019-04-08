@@ -14,6 +14,7 @@ namespace CustReg
             if (Session["CustId"] == null)
             {
                 btnLogin.Text = "Login";
+                btnModify.Visible = false;
             }
             else
             {
