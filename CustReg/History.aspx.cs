@@ -83,10 +83,12 @@ namespace CustReg
         // hiding some columns of the grid view
         protected void grvHistory_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Visible = false;
-            e.Row.Cells[2].Visible = false;
-            e.Row.Cells[5].Visible = false;
-            e.Row.Cells[6].Visible = false;
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[1].Text = "Booking Id";
+                e.Row.Cells[3].Text = "Package";
+                e.Row.Cells[4].Text = "# of Travelers";
+            }
 
             // linda Wallace -- format "Total" column to Currency
             if (e.Row.RowType == DataControlRowType.DataRow)
