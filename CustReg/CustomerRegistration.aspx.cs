@@ -42,8 +42,9 @@ namespace CustReg
 
                 if (Session["CustId"] != null)
                 {
+                    
                     lblGreeting.Text = "Modify Account"; //--linda--change greeting depending if modifying or creating
-
+                    
                     txtFirstName.Text = loggedinCust.CustFirstName;
                     txtLastName.Text = loggedinCust.CustLastName;
                     txtAddress.Text = loggedinCust.CustAddress;
@@ -69,6 +70,10 @@ namespace CustReg
             
             //creates new customer---Matthew & Linda
             Customer customer = new Customer();
+            if (Session["CustId"] != null)
+            {
+                customer.CustomerId = loggedinCust.CustomerId;
+            }
             customer.CustFirstName = txtFirstName.Text;
             customer.CustLastName = txtLastName.Text;
             customer.CustEmail = txtEmail.Text; // optional for assignment, but "Not Null" in db
@@ -85,7 +90,7 @@ namespace CustReg
 
             foreach (LoginInfo log in LogCheck)
             {
-                if (log.UserId == txtUserId.Text)
+                if (log.UserId == txtUserId.Text && log.UserId!=loggedinCust.UserId)
                 {
                     ErrUserId.Visible = true;
                     break;  //--linda--stops code,  once it finds a match
@@ -104,9 +109,9 @@ namespace CustReg
                 else
                 {
                     //update
-                    customer.CustomerId = loggedinCust.CustomerId;
+                    
                     int[] checkId = { 13 };//userId, let Generic Update method check userID duplication while updating.
-                    GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null, checkId);
+                    int result=GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null);
                 }
             }
         }

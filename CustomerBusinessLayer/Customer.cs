@@ -9,7 +9,7 @@ namespace CustomerBusinessLayer
 {
     public class Customer
     {
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         [Required]
         public string CustFirstName { get; set; }
