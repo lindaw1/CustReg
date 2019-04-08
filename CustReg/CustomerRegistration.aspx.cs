@@ -115,7 +115,7 @@ namespace CustReg
                     //henry DB side checking for duplicate userid
                     
                     int[] checkId = { 13 };//userId, let Generic Update method check userID duplication while updating.
-                    int result=GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null);
+                    int result=GenericDB.GenericUpdate<Customer>("Customers", loggedinCust, customer, null, null,checkId);
                 }
             }
         }
