@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="CustReg.History" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="row" style="width:100%"
     <p>
         <br />
     </p>
@@ -30,4 +31,5 @@
         &nbsp;</p>
     <p>
         &nbsp;</p>
+        <div />
 </asp:Content>

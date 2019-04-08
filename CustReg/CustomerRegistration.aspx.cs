@@ -56,8 +56,6 @@ namespace CustReg
                 }
 
             }
-
-
            
         }
 
