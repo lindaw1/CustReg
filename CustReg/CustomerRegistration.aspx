@@ -69,7 +69,7 @@
         <div style="margin-bottom: 20px">
             <asp:Label ID="lblBusPhone" runat="server" Text="Business Phone" CssClass="col-sm-4"></asp:Label>
             <asp:TextBox ID="txtBusPhone" runat="server" CssClass="col-sm-6"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone"  Display="Dynamic" CssClass="text-danger">Please enter your business phone number.</asp:RequiredFieldValidator>
+          <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtBusPhone"  Display="Dynamic" CssClass="text-danger">Please enter your business phone number.</asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator runat="server" ID="BusErr" ControlToValidate="txtBusPhone" ValidationExpression="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" CssClass="text-danger" ErrorMessage="(555) 555-1212 is the required format"></asp:RegularExpressionValidator>
          </div>
         
