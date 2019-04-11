@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomerBusinessLayer
 {
+    //Henry and Hoorna
     // an entity class to create history objects
     public class HistoryEntity
     {        

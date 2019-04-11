@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//Henry and Hoorna
 namespace CustReg
 {
     // a page to show the booking history of the loggedin customer
