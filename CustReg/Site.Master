@@ -37,7 +37,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
+        <%--Navigation bar using Bootstrap, Linda Wallace--%>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid row">
                 <div class="navbar-header">
@@ -50,12 +50,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
+                        <li class="dropdown"> <%--dropdown menu--%>
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Account
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/History.aspx">Travel History</a></li>
-                                <asp:Literal ID="myLiteral" runat="server"></asp:Literal>
+                                <asp:Literal ID="myLiteral" runat="server"></asp:Literal> <%--coded by Henry, menu item that is visible depending on if there is a session id--%>
                             </ul>
                         </li>
                     </ul>

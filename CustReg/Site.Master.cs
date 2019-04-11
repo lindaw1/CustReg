@@ -38,17 +38,15 @@ namespace CustReg
 
         protected void btnModify_Click(object sender, EventArgs e)
         {
-        
 
+            if (Session["CustId"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
 
-        if (Session["CustId"] == null)
-        {
-            Response.Redirect("Default.aspx");
+            else
+                Response.Redirect("CustomerRegistration.aspx");
         }
 
-        else
-        Response.Redirect("CustomerRegistration.aspx");
     }
-
-}
 }

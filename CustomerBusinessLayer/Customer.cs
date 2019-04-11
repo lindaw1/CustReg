@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace CustomerBusinessLayer
 {
+    //coded mostly by Linda and Matthew
     public class Customer
     {
 
-        public int? CustomerId { get; set; }
+        public int? CustomerId { get; set; } //can't be null
 
         [Required]
         public string CustFirstName { get; set; }
@@ -41,8 +42,7 @@ namespace CustomerBusinessLayer
 
         [Required]
         public string CustEmail { get; set; }
-
-        
+    
         public int? AgentId { get; set; }
 
         [Required]
